@@ -1,0 +1,60 @@
+* {
+    box-sizing: border-box;
+    transition: 0.2s;
+}
+
+html, body {
+    background-color: #222;
+    color: #fff;
+}
+
+table, tr, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+    padding: 6px;
+}
+
+th, td {
+    min-width: 96px;
+}
+
+input, select, option {
+    background-color: gold;
+    color: black;
+    padding: 9px;
+    font-size: 18px;
+    border: 0;
+    outline: 0;
+    border-radius: 12px;
+}
+
+select:focus {
+    border-radius: 0;
+}
+
+input[type='submit'] {
+    cursor: pointer;
+}
+
+.row {
+    display: flex;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.mt-2 {
+    margin-top: 0.7rem;
+}
+
+.jcc {
+    justify-content: center;
+}
+
+form {
+    background-color: #666;
+    padding: 12px;
+    border-radius: 12px;
+}
