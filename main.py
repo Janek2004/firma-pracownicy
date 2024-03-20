@@ -28,8 +28,8 @@ def do_pool(requests_count = 1):
 
 if __name__ == "__main__":
     s = time.time()
-    #for i in range(1): do_pool(500)
-    make_requests(500)
+    for i in range(1): do_pool(500)
+    #make_requests(500)
     t = round(time.time() - s, 2)
     print(f'KONIEC -> {t}s, tyle zle ->', ile_zle)
     print('CPUS ->', multiprocessing.cpu_count())

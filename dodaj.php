@@ -7,8 +7,10 @@ include_once ('head.php');
 
 <body>
     <header>
-        <h3>Dodawanie pracownika</h3>
-        <h3><a href="index.php">Powrót do menu</a></h3>
+        <h2>Dodawanie pracownika</h2>
+        <h3>
+            <a href="index.php">Powrót do menu</a>
+        </h3>
     </header>
     <section class="">
         <?php
@@ -41,31 +43,33 @@ include_once ('head.php');
         ?>
 
     </section>
-    <section class="blok2">
+    <section>
         <form action="" method="post">
-            <h4>Podaj dane pracownikow</h4>
-            <p> Podaj imie pracownika: <input type="text" name="imie"
-                    value="<?php echo isset ($_POST['imie']) ? $_POST['imie'] : ''; ?>" />
-            <p>
-            <p> Podaj nazwisko pracownika: <input type="text" name="nazwisko"
-                    value="<?php echo isset ($_POST['nazwisko']) ? $_POST['nazwisko'] : ''; ?>" /></p>
-            <p> Podaj wiek pracownika : <input type="number" name="wiek" /> </p>
-            <p> Podaj staż pracownika : <input type="number" name="staz" /> </p>
-            <p> Podaj stanownisko pracownika : <input type="text" name="stanowisko" /> </p>
-            <p> Podaj wydzial przypisany do pracownika:
-                <select name="wydzial" class="lista">
-                    <option value="dyrekcja">Dyrekcja</option>
-                    <option value="Dział IT">Dział IT</option>
-                    <option value="Biuro">Biuro</option>
-                    <option value="Produkcja">Produkcja</option>
-                    <option value="Zaopatrzenie">Zaopatrzenie</option>
-                    <option value="Finanse">Finanse</option>
-                    <option value="Kadry">Kadry</option>
-                    <option value="Inny">Inny</option>
-                </select>
-
-            <p>Podaj pensje pracownika: <input type="number" name="pensja"></p>
-            <p><input type="submit" name="dodaj" class="przycisk"></p>
+            <h3>Podaj dane nowego pracownika</h3>
+            <p> Podaj imie pracownika:</p>
+            <input type="text" name="imie" value="<?= isset ($_POST['imie']) ? $_POST['imie'] : '' ?>" />
+            <p> Podaj nazwisko pracownika:</p>
+            <input type="text" name="nazwisko" value="<?= isset ($_POST['nazwisko']) ? $_POST['nazwisko'] : ''; ?>" />
+            <p> Podaj wiek pracownika:</p>
+            <input type="number" name="wiek" />
+            <p> Podaj staż pracownika:</p>
+            <input type="number" name="staz" />
+            <p> Podaj stanownisko pracownika:</p>
+            <input type="text" name="stanowisko" />
+            <p>Podaj wydzial przypisany do pracownika:</p>
+            <select name="wydzial" class="lista">
+                <option value="dyrekcja">Dyrekcja</option>
+                <option value="Dział IT">Dział IT</option>
+                <option value="Biuro">Biuro</option>
+                <option value="Produkcja">Produkcja</option>
+                <option value="Zaopatrzenie">Zaopatrzenie</option>
+                <option value="Finanse">Finanse</option>
+                <option value="Kadry">Kadry</option>
+                <option value="Inny">Inny</option>
+            </select>
+            <p>Podaj pensje pracownika:</p>
+            <input type="number" name="pensja">
+            <p class='mt-2'><input class="mt-2" type="submit" name="dodaj" value="Dodaj nowego pracownika" /></p>
     </section>
 </body>
 

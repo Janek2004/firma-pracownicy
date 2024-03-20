@@ -14,12 +14,12 @@ include_once ('head.php');
             <div class="col">
                 <h3>Wybierz opcję</h3>
                 <div>
-                    <select name="action">
-                        <option value="select_worker" selected disabled>Wybierz...</option>
-                        <option value="add_worker">Dodaj pracowników</option>
-                        <option value="select_worker">Wyświetl pracowników</option>
-                        <option value="edit_worker">Edytuj pracowników</option>
-                        <option value="delete_worker">Usuń pracowników</option>
+                    <select name="action" onchange="location = this.value;">
+                        <option value="" selected disabled>Wybierz...</option>
+                        <option value="dodaj.php">Dodaj pracowników</option>
+                        <option value="wyswietl.php">Wyświetl pracowników</option>
+                        <option value="edytuj.php">Edytuj pracowników</option>
+                        <option value="usun.php">Usuń pracowników</option>
                     </select>
                 </div>
                 <div class='d-flex mt-2 jcc'>
