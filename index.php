@@ -14,7 +14,7 @@ make_navbar(false);
                         <option value="" selected disabled>Wybierz...</option>
                         <option value="dodaj.php">Dodaj pracowników</option>
                         <option value="wyswietl.php">Wyświetl pracowników</option>
-                        <option value="edytuj.php">Edytuj pracowników</option>
+                        <option value="edytuj1.php">Edytuj pracowników</option>
                         <option value="usun.php">Usuń pracowników</option>
                     </select>
                 </div>
