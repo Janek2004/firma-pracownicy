@@ -19,7 +19,7 @@ make_navbar(true, 'Edytuj pracownika');
         </form>
     </section>
 </div>
-<main class='mt-2'>
+<main class='mt-2 d-flex justify-center'>
     <?php
     make_tag('table');
     make_table_header(['Imię', 'Nazwisko', 'Wiek', 'Staż', 'Stanowisko', 'Wydział', 'Pensja', 'Data dodania']);
