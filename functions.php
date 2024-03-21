@@ -46,8 +46,8 @@ function make_footer() {
 }
 
 function make_navbar($show_back_button = true, $title = 'Aplikacja do obsługi pracowników firmy') {
-    $back_element = $show_back_button ? '<h3><a href="index.php">Wróć do menu</a></h3>' : '';
-    echo '<header><h2>'.$title.'</h2>'.$back_element.'</header>';
+    $back_element = $show_back_button ? '<h2><a href="index.php">Wróć do menu</a></h2>' : '';
+    echo '<header><h1>'.$title.'</h1>'.$back_element.'</header>';
 }
 
 function make_tag($tag) {

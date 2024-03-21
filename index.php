@@ -5,6 +5,7 @@ make_navbar(false);
 ?>
 
     <div class='row justify-center'>
+        <section>
         <form method="post">
             <div class="col">
                 <h3>Wybierz opcję</h3>
@@ -22,6 +23,7 @@ make_navbar(false);
                 </div>
             </div>
         </form>
+        </section>
     </div>
 
     <?php

@@ -55,7 +55,7 @@ input[type='submit'] {
     justify-content: center;
 }
 
-form {
+section {
     background-color: #444;
     padding: 12px;
     border-radius: 12px;
@@ -65,13 +65,9 @@ header {
     
 }
 
-h2 {
+h1, h2, h3, h4, h5, h6 {
     text-align: center;
-}
-
-h3 {
     margin-top: 0;
-    text-align: center;
 }
 
 a {
@@ -81,6 +77,11 @@ a {
 p {
     margin-top: 6px;
     margin-bottom: 3px;
+}
+
+.wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 /*

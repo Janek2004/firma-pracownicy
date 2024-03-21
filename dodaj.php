@@ -23,9 +23,6 @@ if (isset ($_POST['action_add_worker'])) {
 }
     ?>
     <section>
-
-    </section>
-    <section>
         <form action="" method="post">
             <h3>Podaj dane nowego pracownika</h3>
             <p> Podaj imie pracownika:</p>
