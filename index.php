@@ -1,7 +1,6 @@
 <?php
 include_once ('functions.php');
 make_header();
-
 make_navbar(false);
 ?>
 

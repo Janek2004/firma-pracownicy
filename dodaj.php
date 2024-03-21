@@ -2,7 +2,6 @@
 <?php
 require_once('functions.php');
 make_header('Firma - Dodaj pracownika');
-
 make_navbar(true, 'Dodawanie pracownika');
 
 if (isset ($_POST['action_add_worker'])) {

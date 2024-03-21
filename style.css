@@ -17,6 +17,7 @@ table, tr, th, td {
 
 th, td {
     min-width: 96px;
+    text-align: center;
 }
 
 input, select, option {
