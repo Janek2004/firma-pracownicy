@@ -2,14 +2,15 @@
 <html lang="pl">
 
 <?php
-include_once ('head.php');
+include_once ('functions.php');
+make_header();
 ?>
 
 <body>
     <?php
-    include_once ('header.php');
+    make_navbar(false);
     ?>
-    <div class='row jcc'>
+    <div class='row justify-center'>
         <form method="post">
             <div class="col">
                 <h3>Wybierz opcję</h3>

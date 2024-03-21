@@ -2,18 +2,13 @@
 <html lang="pl">
 
 <?php
-include_once ('head.php');
+require_once('functions.php');
+make_header('Firma - Dodaj pracownika');
 ?>
 
 <body>
-    <header>
-        <h2>Dodawanie pracownika</h2>
-        <h3>
-            <a href="index.php">Powrót do menu</a>
-        </h3>
-    </header>
-    <section class="">
-        <?php
+    <?php
+        make_navbar(true, 'Dodawanie pracownika');
         if (isset ($_POST['dodaj'])) {
             $imie = $_POST['imie'];
             $nazwisko = $_POST['nazwisko'];
@@ -26,21 +21,11 @@ include_once ('head.php');
             if (empty ($imie) || empty ($nazwisko) || empty ($wiek) || empty ($stanowisko) || empty ($wydzial))
                 echo "<h3 style='color:#ff7f6b'>Nie podałeś wszystkich danych</h3>";
             else {
-                include ('funkcje.php');
-                if (polacz()) {
-                    echo "<h3>Udało się połączyć z bazą</h3>";
-                    $zapyt = "insert into pracownicy values(null,'$imie','$nazwisko',$wiek,$staz,'$stanowisko','$wydzial',$pensja,'$data');";
-                    $wynik = mysqli_query($polaczenie, $zapyt);
-                    if ($wynik)
-                        echo "<h3>Pracownik $imie $nazwisko został dodany na stanowisko $stanowisko w dziale $wydzial. Data dodania: $data</h3>";
-                    else
-                        echo "<h3 style='color:red'>Błąd w dodawaniu pracownika</h3>";
-
-                } else
-                    echo "<h3 style='color:red'>Błąd połączenia z bazą</h3>";
+                if (connect()) {
             }
         }
-        ?>
+    ?>
+    <section>
 
     </section>
     <section>
