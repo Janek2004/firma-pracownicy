@@ -8,12 +8,18 @@ function connect() {
 }
 
 function make_header($page_title = 'Firma - Pracownicy') {
-    echo '<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>'.$page_title.'</title>
-    <link rel="stylesheet" href="style.css">
-</head>';
+    echo '<!DOCTYPE html><html lang="pl">
+        <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>'.$page_title.'</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>';
+}
+
+function make_footer() {
+    echo "</body></html>";
 }
 
 function make_navbar($show_back_button = true, $title = 'Aplikacja do obsługi pracowników firmy') {
@@ -26,9 +32,9 @@ function query($query) {
     return $conn->query($query);
 }
 
-function add_worker($database_connection, $imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzial, $pensja, $data) {
+function add_worker($imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzial, $pensja, $data) {
     $query = "insert into pracownicy values(null,'$imie','$nazwisko',$wiek,$staz,'$stanowisko','$wydzial',$pensja,'$data');";
-    $result = $database_connection->query($query);
+    $result = query($query);
     if ($result)
         echo "<h3>Pracownik $imie $nazwisko został dodany na stanowisko $stanowisko w dziale $wydzial. Data dodania: $data</h3>";
     else

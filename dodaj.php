@@ -1,29 +1,27 @@
-<!DOCTYPE html>
-<html lang="pl">
 
 <?php
 require_once('functions.php');
 make_header('Firma - Dodaj pracownika');
-?>
 
-<body>
-    <?php
-        make_navbar(true, 'Dodawanie pracownika');
-        if (isset ($_POST['dodaj'])) {
-            $imie = $_POST['imie'];
-            $nazwisko = $_POST['nazwisko'];
-            $wiek = $_POST['wiek'];
-            $staz = $_POST['staz'];
-            $stanowisko = $_POST['stanowisko'];
-            $wydzial = $_POST['wydzial'];
-            $pensja = $_POST['pensja'];
-            $data = date("Y-m-d");
-            if (empty ($imie) || empty ($nazwisko) || empty ($wiek) || empty ($stanowisko) || empty ($wydzial))
-                echo "<h3 style='color:#ff7f6b'>Nie podałeś wszystkich danych</h3>";
-            else {
-                if (connect()) {
-            }
+make_navbar(true, 'Dodawanie pracownika');
+
+if (isset ($_POST['action_add_worker'])) {
+    $imie = $_POST['imie'];
+    $nazwisko = $_POST['nazwisko'];
+    $wiek = $_POST['wiek'];
+    $staz = $_POST['staz'];
+    $stanowisko = $_POST['stanowisko'];
+    $wydzial = $_POST['wydzial'];
+    $pensja = $_POST['pensja'];
+    $data = date("Y-m-d");
+    if (empty ($imie) || empty ($nazwisko) || empty ($wiek) || empty ($stanowisko) || empty ($wydzial))
+        echo "<h3 style='color:#f55'>Nie podałeś wszystkich danych!</h3>";
+    else {
+        if (connect()) {
+            add_worker($imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzial, $pensja, $data);
         }
+    }
+}
     ?>
     <section>
 
@@ -42,7 +40,7 @@ make_header('Firma - Dodaj pracownika');
             <p> Podaj stanownisko pracownika:</p>
             <input type="text" name="stanowisko" />
             <p>Podaj wydzial przypisany do pracownika:</p>
-            <select name="wydzial" class="lista">
+            <select name="wydzial">
                 <option value="dyrekcja">Dyrekcja</option>
                 <option value="Dział IT">Dział IT</option>
                 <option value="Biuro">Biuro</option>
@@ -54,8 +52,11 @@ make_header('Firma - Dodaj pracownika');
             </select>
             <p>Podaj pensje pracownika:</p>
             <input type="number" name="pensja">
-            <p class='mt-2'><input class="mt-2" type="submit" name="dodaj" value="Dodaj nowego pracownika" /></p>
+            <p class='mt-2'>
+                <input class="mt-2" type="submit" name="action_add_worker" value="Dodaj nowego pracownika" />
+            </p>
     </section>
-</body>
 
-</html>
+    <?php 
+    make_footer();
+    ?>

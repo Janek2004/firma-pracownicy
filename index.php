@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="pl">
-
 <?php
 include_once ('functions.php');
 make_header();
+
+make_navbar(false);
 ?>
 
-<body>
-    <?php
-    make_navbar(false);
-    ?>
     <div class='row justify-center'>
         <form method="post">
             <div class="col">
@@ -29,6 +24,7 @@ make_header();
             </div>
         </form>
     </div>
-</body>
 
-</html>
+    <?php
+        make_footer();
+    ?>
