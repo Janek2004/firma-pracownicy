@@ -20,7 +20,7 @@ th, td {
     text-align: center;
 }
 
-input, select, option {
+input, select, option, button {
     background-color: gold;
     color: black;
     padding: 9px;
@@ -34,7 +34,7 @@ select:focus {
     border-radius: 0;
 }
 
-input[type='submit'] {
+input[type='submit'], button {
     cursor: pointer;
 }
 
