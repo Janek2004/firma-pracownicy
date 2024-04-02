@@ -61,10 +61,6 @@ section {
     border-radius: 12px;
 }
 
-header {
-    
-}
-
 h1, h2, h3, h4, h5, h6 {
     text-align: center;
     margin-top: 0;
@@ -83,11 +79,6 @@ p {
     display: flex;
     justify-content: center;
 }
-
-/*
-    FIXME:
-    HASŁO DO PDF TO GoodLuck
-*/
 
 .hidden {
     display: none;
