@@ -36,7 +36,7 @@ make_navbar(true, 'Wszyscy pracownicy');
             <p>Podaj wydział</p>
             <select name="wydzial">
                 <option value="">Dowolny</option>
-                <option value="dyrekcja">Dyrekcja</option>
+                <option value="Dyrekcja">Dyrekcja</option>
                 <option value="Dział IT">Dział IT</option>
                 <option value="Biuro">Biuro</option>
                 <option value="Produkcja">Produkcja</option>
@@ -71,7 +71,7 @@ make_navbar(true, 'Wszyscy pracownicy');
         $wedlug = $_POST['wedlug'];
         $wydzial = $_POST['wydzial'];
         $pensja = $_POST['pensja'] ? $_POST['pensja'] : 0;
-        display_all_workers("SELECT * FROM ludziki WHERE wydzial LIKE '%$wydzial' AND pensja > $pensja ORDER BY '$wedlug';", false, isset($_POST['pokaz_pensje']));
+        display_all_workers("SELECT * FROM ludziki WHERE wydzial LIKE '%$wydzial' AND pensja > $pensja ORDER BY $wedlug;", false, isset($_POST['pokaz_pensje']));
 
     } else {
         display_all_workers();

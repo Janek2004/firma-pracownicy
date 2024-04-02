@@ -14,7 +14,7 @@ make_navbar(true, "Edytujesz pracownika o ID: $worker_id");
 
     <?php
         echo "<input type='hidden' value='$worker_id' name='id' />";
-        display_all_workers("SELECT * FROM ludziki where Numer = $worker_id;", true);
+        display_all_workers("SELECT * FROM ludziki where Numer = $worker_id;", true, true);
     ?>
     <p class='mt-2 d-flex justify-center'>
         <input type="submit" value="Zapisz zmiany" name="save_changes" />
