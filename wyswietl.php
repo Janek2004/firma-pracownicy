@@ -35,6 +35,7 @@ make_navbar(true, 'Wszyscy pracownicy');
             </select>
             <p>Podaj wydział</p>
             <select name="wydzial">
+                <option value="">Dowolny</option>
                 <option value="dyrekcja">Dyrekcja</option>
                 <option value="Dział IT">Dział IT</option>
                 <option value="Biuro">Biuro</option>
@@ -42,7 +43,7 @@ make_navbar(true, 'Wszyscy pracownicy');
                 <option value="Zaopatrzenie">Zaopatrzenie</option>
                 <option value="Finanse">Finanse</option>
                 <option value="Kadry">Kadry</option>
-                <option value="">Inne</option>
+                <option value="Inny">Innu</option>
             </select>
             <p>Podaj min. pensję</p>
             <input type="number" name="pensja" value="<?= isset($_POST['pensja']) ? $_POST['pensja'] : 0 ?>" />
@@ -63,7 +64,7 @@ make_navbar(true, 'Wszyscy pracownicy');
         $wedlug = $_POST['wedlug'];
         $wydzial = $_POST['wydzial'];
         $pensja = $_POST['pensja'] ? $_POST['pensja'] : 0;
-        display_all_workers("SELECT * FROM ludziki WHERE wydzial LIKE '$wydzial' AND pensja > $pensja ORDER BY '$wedlug';");
+        display_all_workers("SELECT * FROM ludziki WHERE wydzial LIKE '%$wydzial' AND pensja > $pensja ORDER BY '$wedlug';");
 
     } else {
         display_all_workers();
@@ -79,11 +80,9 @@ make_navbar(true, 'Wszyscy pracownicy');
     $avg_pensja = $avg_stats[0];
     $avg_wiek = $avg_stats[1];
     $avg_staz = $avg_stats[2];
-    echo_info("Średnia pensja: " . round($avg_pensja, 2) . " zł");
-    echo_info("Średni wiek: " . round($avg_wiek, 2) . " lat(a)");
-    echo_info("Średni staż: " . round($avg_staz, 2) . ' lat(a)');
+    echo_info("Średnia pensja: " . round($avg_pensja, 2) . " zł, Średni wiek: " . round($avg_wiek, 2) . " lat(a), Średni staż: " . round($avg_staz, 2) . ' lat(a)');
 
-    echo_info('Pracownik z najwyższą pensją:');
+    echo_info('Pracownik z najwyższą pensją:', '#7f7');
     ?>
 
 </aside>
@@ -96,7 +95,6 @@ make_navbar(true, 'Wszyscy pracownicy');
 
 <?php
 
-    disconnect();
     make_footer();
 
 ?>

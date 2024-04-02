@@ -30,12 +30,21 @@ function query($query)
 
 function add_worker($imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzial, $pensja, $data)
 {
-    $query = "insert into ludziki values(null,'$imie','$nazwisko',$wiek,$staz,'$stanowisko','$wydzial',$pensja,'$data');";
+    $query = "INSERT INTO ludziki values(null,'$imie','$nazwisko',$wiek,$staz,'$stanowisko','$wydzial',$pensja,'$data');";
     $result = query($query);
     if ($result) {
         echo_info("Pracownik $imie $nazwisko został dodany na stanowisko $stanowisko w dziale $wydzial. Data dodania: $data");
     } else
         echo_error('Błąd podczas dodawania pracownika!');
+}
+
+function edit_worker($numer, $imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzial, $pensja)
+{
+    $query = "UPDATE ludziki SET Imie='$imie', Nazwisko='$nazwisko', Wiek=$wiek, Staz=$staz, Stanowisko='$stanowisko', Wydzial='$wydzial', Pensja=$pensja WHERE Numer = $numer;";
+    $result = query($query);
+    if (!$result) {
+        echo_error('Błąd podczas zapisywania pracownika!');
+    }
 }
 
 function display_all_workers($replace_query = '', $edit_mode = false)
@@ -75,6 +84,7 @@ function make_header($page_title = 'Firma - Pracownicy')
 
 function make_footer()
 {
+    disconnect();
     echo "</body></html>";
 }
 
@@ -109,9 +119,12 @@ function make_table_row_worker($numer, $imie, $nazwisko, $wiek, $staz, $stanowis
 {
     make_tag('tr');
     if (!$edit_mode) {
+
         make_multiple_tags('td', [$numer, $imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzial, $pensja, $data]);
+
     } else {
-        $wydzial_html = "<select name='wydzial'>";        
+
+        $wydzial_html = "<select name='Wydzial'>";
         $opts = ['Dyrekcja', 'Dział IT', 'Biuro', 'Produkcja', 'Zaopatrzenie', 'Finanse', 'Kadry', 'Inny'];
         for ($i = 0; $i < count($opts); $i++) {
             $opt = $opts[$i];
@@ -124,22 +137,22 @@ function make_table_row_worker($numer, $imie, $nazwisko, $wiek, $staz, $stanowis
         $wydzial_html .= '</select>';
 
         make_multiple_tags('td', [$numer,
-        "<input name='imie' value='$imie' />",
-        "<input name='nazwisko' value='$nazwisko' />",
-        "<input name='wiek' type='number' value='$wiek' />",
-        "<input name='staz' type='number' type='number' value='$staz' />",
-        "<input name='stanowisko' value='$stanowisko' />",
+        "<input name='Imie' minlength='2' required value='$imie' />",
+        "<input name='Nazwisko' minlength='2' required value='$nazwisko' />",
+        "<input name='Wiek' type='number' value='$wiek' />",
+        "<input name='Staz' type='number' type='number' value='$staz' />",
+        "<input name='Stanowisko' value='$stanowisko' />",
         $wydzial_html,
-        "<input name='pensja' type='number' value='$pensja' />",
+        "<input name='Pensja' type='number' value='$pensja' />",
         $data,
     ]);
     }
     make_tag('/tr');
 }
 
-function echo_info($info)
+function echo_info($info, $color = '#77f')
 {
-    echo "<h3 style='color:#77f'>$info</h3>";
+    echo "<h3 style='color:$color'>$info</h3>";
 }
 
 function echo_error($err)

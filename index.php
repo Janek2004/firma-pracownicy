@@ -15,7 +15,7 @@ make_navbar(false);
                         <option value="dodaj.php">Dodaj pracowników</option>
                         <option value="wyswietl.php">Wyświetl pracowników</option>
                         <option value="edytuj1.php">Edytuj pracowników</option>
-                        <option value="usun.php">Usuń pracowników</option>
+                        <option value="usun1.php">Usuń pracowników</option>
                     </select>
                 </div>
                 <div class='d-flex mt-2 jcc'>

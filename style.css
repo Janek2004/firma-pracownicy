@@ -88,3 +88,7 @@ p {
     FIXME:
     HASŁO DO PDF TO GoodLuck
 */
+
+.hidden {
+    display: none;
+}
