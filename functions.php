@@ -111,10 +111,18 @@ function make_table_row_worker($numer, $imie, $nazwisko, $wiek, $staz, $stanowis
     if (!$edit_mode) {
         make_multiple_tags('td', [$numer, $imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzial, $pensja, $data]);
     } else {
-        $wydzial_html = "<select name='wydzial'>";
-        
+        $wydzial_html = "<select name='wydzial'>";        
         $opts = ['Dyrekcja', 'Dział IT', 'Biuro', 'Produkcja', 'Zaopatrzenie', 'Finanse', 'Kadry', 'Inny'];
-            </select>";
+        for ($i = 0; $i < count($opts); $i++) {
+            $opt = $opts[$i];
+            if($opt == $wydzial) {
+                $wydzial_html .= "<option value='$opts[$i]' selected='selected'>$opts[$i]</option>";
+            } else {
+                $wydzial_html .= "<option value='$opts[$i]'>$opts[$i]</option>";
+            }
+        }
+        $wydzial_html .= '</select>';
+
         make_multiple_tags('td', [$numer,
         "<input name='imie' value='$imie' />",
         "<input name='nazwisko' value='$nazwisko' />",
