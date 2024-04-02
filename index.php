@@ -11,7 +11,7 @@ make_navbar(false);
                 <h3>Wybierz opcję</h3>
                 <div>
                     <select name="action" onchange="location = this.value;">
-                        <option value="" selected disabled>Wybierz...</option>
+                        <option value="" selected disabled hidden>Wybierz...</option>
                         <option value="dodaj.php">Dodaj pracowników</option>
                         <option value="wyswietl.php">Wyświetl pracowników</option>
                         <option value="edytuj1.php">Edytuj pracowników</option>
