@@ -47,7 +47,7 @@ function edit_worker($numer, $imie, $nazwisko, $wiek, $staz, $stanowisko, $wydzi
     }
 }
 
-function display_all_workers($replace_query = '', $edit_mode = false)
+function display_all_workers($replace_query = '', $edit_mode = false, $show_money = false)
 {
 
     make_tag('table');
@@ -61,7 +61,8 @@ function display_all_workers($replace_query = '', $edit_mode = false)
     }
 
     while ($worker = $res->fetch_array()) {
-        make_table_row_worker($worker['Numer'], $worker['Imie'], $worker['Nazwisko'], $worker['Wiek'], $worker['Staz'], $worker['Stanowisko'], $worker['Wydzial'], $worker['Pensja'], $worker['Data_dodania'], $edit_mode);
+        $pensja = $show_money ? $worker['Pensja'] : '***** zł';
+        make_table_row_worker($worker['Numer'], $worker['Imie'], $worker['Nazwisko'], $worker['Wiek'], $worker['Staz'], $worker['Stanowisko'], $worker['Wydzial'], $pensja, $worker['Data_dodania'], $edit_mode);
     }
 
     make_tag('/table');

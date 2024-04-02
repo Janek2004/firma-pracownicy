@@ -48,6 +48,13 @@ make_navbar(true, 'Wszyscy pracownicy');
             <p>Podaj min. pensję</p>
             <input type="number" name="pensja" value="<?= isset($_POST['pensja']) ? $_POST['pensja'] : 0 ?>" />
 
+            <p>
+            <label>
+                <input type="checkbox" name="pokaz_pensje" />
+                Pokazać pensje?
+            </label>
+            </p>
+
             <p class='mt-2'>
                 <input type="submit" value="FILTRUJ DANE" name="filtruj" />
                 <button onclick="() => location.refresh()">WSZYSCY PRACOWNICY</button>
@@ -64,7 +71,7 @@ make_navbar(true, 'Wszyscy pracownicy');
         $wedlug = $_POST['wedlug'];
         $wydzial = $_POST['wydzial'];
         $pensja = $_POST['pensja'] ? $_POST['pensja'] : 0;
-        display_all_workers("SELECT * FROM ludziki WHERE wydzial LIKE '%$wydzial' AND pensja > $pensja ORDER BY '$wedlug';");
+        display_all_workers("SELECT * FROM ludziki WHERE wydzial LIKE '%$wydzial' AND pensja > $pensja ORDER BY '$wedlug';", false, isset($_POST['pokaz_pensje']));
 
     } else {
         display_all_workers();
@@ -89,7 +96,7 @@ make_navbar(true, 'Wszyscy pracownicy');
 
 <arcticle class="wrapper">
     <?php
-    display_all_workers("SELECT * FROM ludziki ORDER BY pensja DESC LIMIT 1;");
+    display_all_workers("SELECT * FROM ludziki ORDER BY pensja DESC LIMIT 1;", false, isset($_POST['pokaz_pensje']));
     ?>
 </arcticle>
 
